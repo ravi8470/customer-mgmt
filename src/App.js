@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CusForm from './components/CusForm';
+import CustomersList from './components/CustomersList';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2 style={{'textAlign':'center'}}>Customer Mgmt Portal</h2>
+      <div style={{'textAlign':'center'}}><CusForm /></div><hr/>
+      <h3 style={{'display':'inline-block', 'borderBottom': '1px solid red','marginTop':'0'}}>List of Customers:</h3><br/>
+      <CustomersList />
     </div>
   );
 }

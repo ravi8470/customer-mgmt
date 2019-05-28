@@ -1,0 +1,13 @@
+Create DB:
+CREATE DATABASE `customer_mgmt`;
+CREATE Table customers:
+create table customers (
+	id int AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	mobile BIGINT NOT NULL UNIQUE,
+	address text NOT NULL,
+	city VARCHAR(50) NOT NULL,
+	pincode int(6) NOT NULL,
+	state VARCHAR(20) NOT NULL,
+	gstin VARCHAR(15) NOT NULL UNIQUE
+);
