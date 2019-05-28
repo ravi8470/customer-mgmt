@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const path = require('path');
 const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -13,12 +14,10 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(express.static(path.join(__dirname, '../build')));
 const port = process.env.port || 4000;
 
-app.get('/', (req, res) => {
-    res.send('Hello');
-})
+
 app.get('/getCustomers', (req, res) => {
     console.log('getCustomers')
     conn.query('SELECT * from customers', (err, result) => {
@@ -102,6 +101,10 @@ app.post('/delCustomer', (req, res) => {
             res.send({"success": false})
         }
     })
+})
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
 })
 app.listen(port, () => { console.log( 'server started at port:', port)});
 
