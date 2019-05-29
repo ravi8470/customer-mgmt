@@ -44,7 +44,7 @@ class CusForm extends Component {
     })
     var isUnique;
     let newErr = [];
-    await fetch('https://cusmg.herokuapp.com//unique', {
+    await fetch('https://cusmg.herokuapp.com/unique', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
