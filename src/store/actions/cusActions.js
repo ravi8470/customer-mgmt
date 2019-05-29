@@ -4,7 +4,7 @@ export const addCustomer = (customer) => {
         delete customer.id;
         delete customer.open;
         console.log(customer);
-        fetch('http://localhost:4000/addCustomer', {
+        fetch('https://cusmg.herokuapp.com/addCustomer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export const editCustomer = (customer, id) => {
         delete customer.open;
         customer.id = id;
         console.log(customer);
-        fetch('http://localhost:4000/editCustomer', {
+        fetch('https://cusmg.herokuapp.com/editCustomer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ export const editCustomer = (customer, id) => {
 
 export const delCustomer = (id) => {
     return (dispatch, getState) => {
-        fetch('http://localhost:4000/delCustomer', {
+        fetch('https://cusmg.herokuapp.com/delCustomer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

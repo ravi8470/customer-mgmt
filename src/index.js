@@ -10,7 +10,7 @@ import {Provider} from 'react-redux';
 
 var allCustomers = [];
 (async () => {
-    await fetch('http://localhost:4000/getCustomers').then(res => res.json()).then(data => {
+    await fetch('https://cusmg.herokuapp.com/getCustomers').then(res => res.json()).then(data => {
         allCustomers = data;
         const store = createStore(cusReducer, {customers: allCustomers}, applyMiddleware(thunk) );
 
