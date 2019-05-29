@@ -111,6 +111,6 @@ app.post('/delCustomer', (req, res) => {
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
 })
-const port = process.env.PORT || 4000;
-app.listen(port, () => { console.log( 'server started at port:', port)});
+var portx = process.env.PORT || 4000;
+app.listen(portx, () => { console.log( 'server started at port:', portx)});
 
