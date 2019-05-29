@@ -3,13 +3,18 @@ const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password:'',
-    database: 'customer_mgmt',
-    port: 3306
-})
+if (process.env.JAWSDB_URL == null || process.env.JAWSDB_URL == "") {
+    var conn = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password:'',
+        database: 'customer_mgmt',
+        port: 3306
+    })
+}
+else{
+    var conn = mysql.createConnection(process.env.JAWSDB_URL);
+}
 const app = express();
 
 app.use(cors());
@@ -106,5 +111,6 @@ app.post('/delCustomer', (req, res) => {
 app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, '../build/index.html'))
 })
+const port = process.env.PORT || 4000;
 app.listen(port, () => { console.log( 'server started at port:', port)});
 
